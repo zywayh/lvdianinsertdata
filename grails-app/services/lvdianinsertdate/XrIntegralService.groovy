@@ -6,7 +6,9 @@ import grails.gorm.transactions.Transactional
 class XrIntegralService {
 
 
-    def create(String openid, int count){
+    def create(XrConsumer xrConsumer, int count){
+
+        String openid = xrConsumer.openid
 
         int surplusIntegral = 0
 
@@ -18,7 +20,7 @@ class XrIntegralService {
         integral.surplusIntegral = 0
         integral.surplusIntegral += integral.record
         integral.allIntegral = integral.surplusIntegral
-//        integral.currentTime = new BigDecimal(String.valueOf(System.currentTimeMillis())).divide(new BigDecimal("1000"),0,BigDecimal.ROUND_HALF_UP)
+        integral.currentTimeBak = xrConsumer.intoTime
 
         String code = ""
         def random = new Random()
@@ -28,6 +30,9 @@ class XrIntegralService {
         integral.orderNum = "xr" + code
         integral.save(flush:true)
         surplusIntegral = integral.surplusIntegral
+
+
+        Long time = Long.valueOf(integral.currentTimeBak)
 
         if(random.nextInt(2)){
 
@@ -40,8 +45,8 @@ class XrIntegralService {
                 integralx.surplusIntegral = surplusIntegral
                 integralx.surplusIntegral += integralx.record
                 integralx.allIntegral = integralx.surplusIntegral
-//            Long time = System.currentTimeMillis() - new Random().nextInt(1000 * 60 * 60 * 24 * 2)
-//            integralx.currentTime = new BigDecimal(String.valueOf(time)).divide(new BigDecimal("1000"),0,BigDecimal.ROUND_HALF_UP)
+                time = time + new Random().nextInt(60 * 60) + 60 * 10
+                integralx.currentTimeBak = String.valueOf(time)
 
                 String code1 = ""
                 for(int j=0; j<10; j++){

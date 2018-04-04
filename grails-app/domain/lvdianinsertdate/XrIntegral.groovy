@@ -8,7 +8,7 @@ class XrIntegral {
     String integralDetail
     Integer allIntegral
     Integer surplusIntegral
-//    String currentTime
+    String currentTimeBak
     Integer state = 1
 
 
