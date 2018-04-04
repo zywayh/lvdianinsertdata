@@ -34,7 +34,7 @@ class XrIntegralService {
             integralx.openid = openid
             integralx.state = 1
             integralx.record = 1000
-            integralx.integralDetail = "赠送积分"
+            integralx.integralDetail = "完成关卡获得积分"
             integralx.surplusIntegral = surplusIntegral
             integralx.surplusIntegral += integralx.record
             integralx.allIntegral = integralx.surplusIntegral
