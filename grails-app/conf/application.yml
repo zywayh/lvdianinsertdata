@@ -18,9 +18,10 @@ environments:
             dbCreate: update
 #            dbCreate: create-drop
             dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-            url: jdbc:mysql://zywayh.com/lvdian?sessionVariables=wait_timeout=604800&profileSQL=false&useSSL=false&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
-            username: root
-            password: root
+#            url: jdbc:mysql://zywayh.com/lvdian?sessionVariables=wait_timeout=604800&profileSQL=false&useSSL=false&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+            url: jdbc:mysql://rm-m5ex8tlp81cu0s3xyeo.mysql.rds.aliyuncs.com/lv_dian?sessionVariables=wait_timeout=604800&profileSQL=false&useSSL=false&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+            username: ldian
+            password: uv(gt13MT
 ---
 grails:
     profile: web
