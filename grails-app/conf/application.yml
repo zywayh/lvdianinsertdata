@@ -14,9 +14,9 @@ dataSource:
 
 environments:
     development:
+        server:
+            port: 8623
         dataSource:
-            server:
-                port: 8234
             dbCreate: update
 #            dbCreate: create-drop
             dialect: org.hibernate.dialect.MySQL5InnoDBDialect

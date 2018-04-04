@@ -35,7 +35,7 @@ class DatasService {
      */
     def renwu(){
 //        int max = new Random().nextInt(200) + 100
-        int max = new Random().nextInt(20) + 10
+        int max = new Random().nextInt(50) + 10
         Config config = Config.findByTitle("datas")
         int offset = Integer.valueOf(config.content)
         config.content = String.valueOf(Integer.valueOf(config.content) + max)
