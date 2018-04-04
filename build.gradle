@@ -59,6 +59,8 @@ dependencies {
     runtime group: 'mysql', name: 'mysql-connector-java', version: '5.1.39'
     compile 'org.apache.poi:poi:3.16'
     compile 'org.apache.poi:poi-ooxml:3.16'
+    compile 'org.grails.plugins:mail:2.0.0'
+    compile 'org.grails.plugins:quartz:2.0.9'
 }
 
 bootRun {
