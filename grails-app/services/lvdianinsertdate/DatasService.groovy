@@ -33,11 +33,10 @@ class DatasService {
     /**
      * 定时执行任务
      */
-    def renwu(){
-//        int max = new Random().nextInt(200) + 100
-        int max = new Random().nextInt(50) + 10
+    def renwu(Long max){
         Config config = Config.findByTitle("datas")
-        int offset = Integer.valueOf(config.content)
+        long offset = Long.valueOf(config.content)
+        println offset
         config.content = String.valueOf(Integer.valueOf(config.content) + max)
         config.save(flush:true)
 
