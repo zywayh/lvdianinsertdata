@@ -6,6 +6,11 @@ class DataController {
 
     def datasService
 
+    def index(){
+        def res = [:]
+        respond res
+    }
+
     /**
      * 整理数据
      * @return

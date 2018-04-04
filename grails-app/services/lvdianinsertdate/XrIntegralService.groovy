@@ -29,26 +29,37 @@ class XrIntegralService {
         integral.save(flush:true)
         surplusIntegral = integral.surplusIntegral
 
-        for (int i = 0; i < count; i++) {
-            XrIntegral integralx = new XrIntegral()
-            integralx.openid = openid
-            integralx.state = 1
-            integralx.record = 1000
-            integralx.integralDetail = "完成关卡获得积分"
-            integralx.surplusIntegral = surplusIntegral
-            integralx.surplusIntegral += integralx.record
-            integralx.allIntegral = integralx.surplusIntegral
+        if(random.nextInt(2)){
+
+            for (int i = 0; i < count; i++) {
+                XrIntegral integralx = new XrIntegral()
+                integralx.openid = openid
+                integralx.state = 1
+                integralx.record = 1000
+                integralx.integralDetail = "完成关卡获得积分"
+                integralx.surplusIntegral = surplusIntegral
+                integralx.surplusIntegral += integralx.record
+                integralx.allIntegral = integralx.surplusIntegral
 //            Long time = System.currentTimeMillis() - new Random().nextInt(1000 * 60 * 60 * 24 * 2)
 //            integralx.currentTime = new BigDecimal(String.valueOf(time)).divide(new BigDecimal("1000"),0,BigDecimal.ROUND_HALF_UP)
 
-            String code1 = ""
-            def random1 = new Random()
-            for(int j=0; j<10; j++){
-                code1 += (random1.nextInt(10))
+                String code1 = ""
+                for(int j=0; j<10; j++){
+                    code1 += (random.nextInt(10))
+                }
+                integralx.orderNum = "xr" + code1
+                integralx.save(flush:true)
+                surplusIntegral = integralx.surplusIntegral
             }
-            integralx.orderNum = "xr" + code1
-            integralx.save(flush:true)
-            surplusIntegral = integralx.surplusIntegral
+
+        }
+
+    }
+
+
+    static void main(String[] ages){
+        for (int i = 0; i < 100; i++) {
+            println new Random().nextInt(2)
         }
     }
 }

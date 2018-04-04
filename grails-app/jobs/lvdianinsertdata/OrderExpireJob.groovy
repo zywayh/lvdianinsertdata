@@ -7,7 +7,7 @@ class OrderExpireJob {
     DatasService datasService
 
     static triggers = {
-        simple repeatInterval: 85 * 60 * 1000l // 1分钟
+        simple repeatInterval: 5 * 60 * 1000l // 1分钟
     }
 
     def execute() {

@@ -9,6 +9,7 @@ class DatasService {
     def xrIntegralService
     def emojiFilterService
 
+
     def init(){
         readExcelUtilsService.readExcelToPath().each {
             String nickName = emojiFilterService.filterEmoji(String.valueOf(it.nickName))
@@ -24,7 +25,7 @@ class DatasService {
         Datas.findAll([offset:offset, max:max]).each {
             if(XrConsumer.countByPhone(it.phone) == 0){
                 XrConsumer xrConsumer = new XrConsumer(nickname: it.nickname, headimgurl: it.headimgurl, phone: it.phone).save(flush: true)
-                xrIntegralService.create(xrConsumer.openid, new Random().nextInt(30) + 1)
+                xrIntegralService.create(xrConsumer.openid, new Random().nextInt(13))
             }
         }
     }
@@ -34,8 +35,7 @@ class DatasService {
      */
     def renwu(){
 //        int max = new Random().nextInt(200) + 100
-//        int max = new Random().nextInt(20) + 10
-        int max = 5
+        int max = new Random().nextInt(20) + 10
         Config config = Config.findByTitle("datas")
         int offset = Integer.valueOf(config.content)
         config.content = String.valueOf(Integer.valueOf(config.content) + max)
