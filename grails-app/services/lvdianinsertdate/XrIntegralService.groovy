@@ -31,7 +31,6 @@ class XrIntegralService {
         integral.save(flush:true)
         surplusIntegral = integral.surplusIntegral
 
-
         Long time = Long.valueOf(integral.currentTimeBak)
 
         if(random.nextInt(2)){

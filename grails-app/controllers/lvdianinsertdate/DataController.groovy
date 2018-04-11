@@ -29,11 +29,11 @@ class DataController {
         datasService.create(offset, max)
     }
 
-//    def renwu(){
-//        datasService.renwu()
-//        def res = [aaa:"aaa"]
-//        respond res
-//    }
+    def renwu(Long count){
+        datasService.renwu(count)
+        def res = [aaa:"aaa"]
+        respond res
+    }
 
 
 }
