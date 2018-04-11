@@ -13,7 +13,7 @@ class OrderExpireJob {
     def execute() {
         int hours = new Date().hours
         if(hours >= 8 && hours < 16){
-            datasService.renwu(5L)
+            datasService.renwu(4L)
         }
     }
 }
