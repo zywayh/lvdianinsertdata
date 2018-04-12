@@ -22,9 +22,12 @@ class DatasService {
     }
 
     def create(Long offset, Long max){
+        println offset
+        println max
         Datas.findAll([offset:offset, max:max]).each {
             if(XrConsumer.countByPhone(it.phone) == 0){
                 XrConsumer xrConsumer = new XrConsumer(nickname: it.nickname, headimgurl: it.headimgurl, phone: it.phone).save(flush: true)
+                println it.id
                 xrIntegralService.create(xrConsumer, new Random().nextInt(13))
             }
         }
