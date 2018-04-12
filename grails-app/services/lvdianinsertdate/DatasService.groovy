@@ -37,6 +37,7 @@ class DatasService {
         Config config = Config.findByTitle("datas")
         long offset = Long.valueOf(config.content)
         println offset
+        println new Date()
         config.content = String.valueOf(Integer.valueOf(config.content) + max)
         config.save(flush:true)
 
