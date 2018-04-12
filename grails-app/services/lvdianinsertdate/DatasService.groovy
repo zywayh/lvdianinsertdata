@@ -25,9 +25,11 @@ class DatasService {
         println offset
         println max
         Datas.findAll([offset:offset, max:max]).each {
-            println it.id
+            println "Datas id: " + it.id
+            //验证手机号是否存在
             if(XrConsumer.countByPhone(it.phone) == 0){
                 XrConsumer xrConsumer = new XrConsumer(nickname: it.nickname, headimgurl: it.headimgurl, phone: it.phone).save(flush: true)
+                println "XrConsumer: " + it.id
                 createXrConsumer(xrConsumer, new Random().nextInt(13))
             }
         }
